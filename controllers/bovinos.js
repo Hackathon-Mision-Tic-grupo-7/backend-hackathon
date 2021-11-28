@@ -5,22 +5,22 @@ exports.getBovinos = (req,res) => {
     res.status(200).json(postResult);
   });
 };
-// exports.addProducts = (req, res) => {
-//   const productAdd = new Producto({
-//     id_producto: req.body.id_producto,
-//     description: req.body.description,
-//     price: req.body.price,
-//     state: req.body.state,
-//   });
-//   productAdd
-//     .save()
-//     .then((createdProduct) => {
-//       res.status(201).json("creado satisfactoriamente");
-//     })
-//     .catch((error) => {
-//       res.status(500).json("No se pudo agregar el producto debido a que la id ya existe");
-//     });
-// };
+
+exports.addBovinos = (req, res) => {
+  const BovinoAdd = new Bovino({
+    edad: req.body.edad,
+    identificacion: req.body.identificacion,
+    fechaNacimiento: req.body.fechaNacimiento,
+  });
+  BovinoAdd
+    .save()
+    .then((createdProduct) => {
+      res.status(201).json("creado satisfactoriamente");
+    })
+    .catch((error) => {
+      res.status(500).json("No se pudo agregar el producto debido a que la id ya existe");
+    });
+};
 
 // exports.getProductId = (req, res) => {
 //   Producto.findById(req.params.id).then((productResult) => {

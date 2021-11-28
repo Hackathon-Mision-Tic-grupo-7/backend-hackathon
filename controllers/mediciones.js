@@ -1,10 +1,24 @@
 const Medicion = require('../models/mediciones');
 
 exports.getMediciones = (req,res) => {
-    Medicion.find().then((postResult) => {
+    Medicion.find().then((postResult) => {  
     res.status(200).json(postResult);
   });
 };
+
+exports.getMedicionesID = (req,res) => {
+  Medicion.find({id: req.params.id}).sort({fechaMuestra: 1}).then(
+   (postResult) => {  
+    res.status(200).json(postResult);
+});
+};
+
+exports.getMedicionesMax = (req,res) => {
+  Medicion.find({id: req.params.id}).sort({FC: 1}).limit(1).then((postResult) => {  
+  return postResult;
+});
+};
+
 // exports.addProducts = (req, res) => {
 //   const productAdd = new Producto({
 //     id_producto: req.body.id_producto,

@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const Medicion = mongoose.Schema({
-  IDBovino: { type: Number, required: true},
+  id: { type: String, required: true},
   temperatura: { type: Number},
-  frecuenciaCardiaca: { type: Number },
-  frecuenciaRespiratoria: { type: Number},
+  FC: { type: Number },
+  FR: { type: Number},
   fechaMuestra: { type: Date, required: true },
 });
 

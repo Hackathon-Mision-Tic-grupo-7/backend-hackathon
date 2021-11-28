@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Administrador = mongoose.Schema({
   IDAdministrador: { type: Number, required: true},
-  Nombre: { type: String, required: true },
+  nombre: { type: String, required: true },
   cedula: { type: Number, required: true },
   correo: { type: String, required: true },
   celular: { type: Number, required: true},

@@ -5,22 +5,24 @@ exports.getAdministradores = (req,res) => {
     res.status(200).json(postResult);
   });
 };
-// exports.addProducts = (req, res) => {
-//   const productAdd = new Producto({
-//     id_producto: req.body.id_producto,
-//     description: req.body.description,
-//     price: req.body.price,
-//     state: req.body.state,
-//   });
-//   productAdd
-//     .save()
-//     .then((createdProduct) => {
-//       res.status(201).json("creado satisfactoriamente");
-//     })
-//     .catch((error) => {
-//       res.status(500).json("No se pudo agregar el producto debido a que la id ya existe");
-//     });
-// };
+exports.addAdministradores = (req, res) => {
+  const administradorAdd = new Administrador({
+    IDAdministrador: req.body.id_administrador,
+    nombre: req.body.nombre,
+    cedula: req.body.cedula,
+    correo: req.body.correo,
+    celular:req.body.celular,
+    IDFinca:req.body.id_finca
+  });
+  administradorAdd
+    .save()
+    .then((createdProduct) => {
+      res.status(201).json("creado satisfactoriamente");
+    })
+    .catch((error) => {
+      res.status(500).json("No se pudo agregar el producto debido a que la id ya existe");
+    });
+};
 
 // exports.getProductId = (req, res) => {
 //   Producto.findById(req.params.id).then((productResult) => {
@@ -32,13 +34,14 @@ exports.getAdministradores = (req,res) => {
 //   });
 // };
 
-/* exports.deleteProduct = (req, res) => {
+exports.deleteAdministradores = (req, res) => {
   const id = req.params.id;
-  Producto.deleteOne({ _id: id }).then((productResult) => {
+  Administrador.deleteOne({ _id: id }).then((productResult) => {
     res.status(200).json("El producto se elemino correctamente");
   });
 };
-exports.editProduct = (req, res) => {
+
+/*exports.editProduct = (req, res) => {
   const id = req.params.id;
   const productUpd = new Producto({
     _id: id,

@@ -3,8 +3,8 @@ const router = express.Router();
 const AdministradoresController = require("../controllers/administrador")
 
 router.get("",AdministradoresController.getAdministradores);
-//router.post("",ProductController.addProducts);
+router.post("",AdministradoresController.addAdministradores);
 //router.get("/:id",ProductController.getProductId)
-//router.delete("/:id",ProductController.deleteProduct);
+router.delete("/:id",AdministradoresController.deleteAdministradores);
 //router.put("/:id", ProductController.editProduct);
 module.exports = router;
