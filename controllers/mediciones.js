@@ -20,22 +20,23 @@ exports.getMedicionesMax = (req,res) => {
 });
 };
 
-// exports.addProducts = (req, res) => {
-//   const productAdd = new Producto({
-//     id_producto: req.body.id_producto,
-//     description: req.body.description,
-//     price: req.body.price,
-//     state: req.body.state,
-//   });
-//   productAdd
-//     .save()
-//     .then((createdProduct) => {
-//       res.status(201).json("creado satisfactoriamente");
-//     })
-//     .catch((error) => {
-//       res.status(500).json("No se pudo agregar el producto debido a que la id ya existe");
-//     });
-// };
+exports.addMediciones = (req, res) => {
+  const MedicionAdd = new Medicion({
+    idbovino: req.body.idbovino,
+    temperatura: req.body.temperatura,
+    FC: req.body.FC,
+    FR: req.body.FR,
+    fecha_muestra: req.body.fecha_muestra
+  });
+  MedicionAdd
+    .save()
+    .then((createdProduct) => {
+      res.status(201).json("creado satisfactoriamente");
+    })
+    .catch((error) => {
+      res.status(500).json("No se pudo agregar el producto debido a que la id ya existe");
+    });
+};
 
 // exports.getProductId = (req, res) => {
 //   Producto.findById(req.params.id).then((productResult) => {

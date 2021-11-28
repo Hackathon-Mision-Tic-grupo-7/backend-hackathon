@@ -7,7 +7,7 @@ const Medicion = mongoose.Schema({
   temperatura: {type: Number},
   FC: {type: Number },
   FR: {type: Number},
-  fecha_muestra: { type: Date, required: true },
+  fecha_muestra: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Mediciones", Medicion);
