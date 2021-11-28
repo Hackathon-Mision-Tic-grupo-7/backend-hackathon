@@ -7,14 +7,15 @@ exports.getMediciones = (req,res) => {
 };
 
 exports.getMedicionesID = (req,res) => {
-  Medicion.find({id: req.params.id}).sort({fechaMuestra: 1}).then(
+  console.log(req.params.id);
+  Medicion.find({idbovino: req.params.id}).sort({fecha_muestra: 1}).then(
    (postResult) => {  
     res.status(200).json(postResult);
 });
 };
 
 exports.getMedicionesMax = (req,res) => {
-  Medicion.find({id: req.params.id}).sort({FC: 1}).limit(1).then((postResult) => {  
+  Medicion.find({idBovino: req.params.id}).sort({FC: 1}).limit(1).then((postResult) => {  
   return postResult;
 });
 };
